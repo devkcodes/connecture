@@ -214,7 +214,7 @@ router.put(
   auth,
   check('school', 'School is required').notEmpty(),
   check('degree', 'Degree is required').notEmpty(),
-  check('fieldofstudy', 'Field of study is required').notEmpty(),
+  check('stream', 'stream of study is required').notEmpty(),
   check('from', 'From date is required and needs to be from the past')
     .notEmpty()
     .custom((value, { req }) => (req.body.to ? value < req.body.to : true)),

@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
 
 const initialState = {
-  company: '',
-  website: '',
   location: '',
   status: '',
   skills: '',
@@ -46,8 +44,7 @@ const ProfileForm = ({
   }, [loading, getCurrentProfile, profile]);
 
   const {
-    company,
-    website,
+
     location,
     status,
     skills,
@@ -78,44 +75,15 @@ const ProfileForm = ({
       <form className="form" onSubmit={onSubmit}>
         <div className="form-group">
           <select name="status" value={status} onChange={onChange}>
-            <option>* Select Professional Status</option>
-            <option value="Developer">Developer</option>
-            <option value="Junior Developer">Junior Developer</option>
-            <option value="Senior Developer">Senior Developer</option>
-            <option value="Manager">Manager</option>
-            <option value="Student or Learning">Student or Learning</option>
-            <option value="Instructor">Instructor or Teacher</option>
-            <option value="Intern">Intern</option>
-            <option value="Other">Other</option>
+            <option>* Select Education Status</option>
+            <option value="Developer">First Year</option>
+            <option value="Junior Developer">Second Year</option>
+            <option value="Senior Developer">Third Year</option>
+            <option value="Manager">Fourth Year</option>
+            <option value="Student or Learning">Alumni</option>
           </select>
-          <small className="form-text">
-            Give us an idea of where you are at in your career
-          </small>
         </div>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Company"
-            name="company"
-            value={company}
-            onChange={onChange}
-          />
-          <small className="form-text">
-            Could be your own company or one you work for
-          </small>
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Website"
-            name="website"
-            value={website}
-            onChange={onChange}
-          />
-          <small className="form-text">
-            Could be your own or a company website
-          </small>
-        </div>
+        
         <div className="form-group">
           <input
             type="text"
@@ -125,7 +93,7 @@ const ProfileForm = ({
             onChange={onChange}
           />
           <small className="form-text">
-            City & state suggested (eg. Boston, MA)
+            Your City
           </small>
         </div>
         <div className="form-group">

@@ -8,7 +8,7 @@ const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
     school: '',
     degree: '',
-    fieldofstudy: '',
+    stream: '',
     from: '',
     to: '',
     current: false,
@@ -18,7 +18,7 @@ const AddEducation = ({ addEducation, history }) => {
   const {
     school,
     degree,
-    fieldofstudy,
+    stream,
     from,
     to,
     description,
@@ -66,9 +66,9 @@ const AddEducation = ({ addEducation, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="Field of Study"
-            name="fieldofstudy"
-            value={fieldofstudy}
+            placeholder="Stream"
+            name="stream"
+            value={stream}
             onChange={onChange}
           />
         </div>

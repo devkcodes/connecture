@@ -8,8 +8,6 @@ import {
   UPDATE_PROFILE,
   CLEAR_PROFILE,
   ACCOUNT_DELETED,
-  GET_REPOS,
-  NO_REPOS
 } from './types';
 
 // Get current users profile
@@ -65,21 +63,6 @@ export const getProfileById = (userId) => async (dispatch) => {
   }
 };
 
-// Get Github repos
-export const getGithubRepos = (username) => async (dispatch) => {
-  try {
-    const res = await api.get(`/profile/github/${username}`);
-
-    dispatch({
-      type: GET_REPOS,
-      payload: res.data
-    });
-  } catch (err) {
-    dispatch({
-      type: NO_REPOS
-    });
-  }
-};
 
 // Create or update profile
 export const createProfile = (formData, history, edit = false) => async (
@@ -112,32 +95,7 @@ export const createProfile = (formData, history, edit = false) => async (
   }
 };
 
-// Add Experience
-export const addExperience = (formData, history) => async (dispatch) => {
-  try {
-    const res = await api.put('/profile/experience', formData);
 
-    dispatch({
-      type: UPDATE_PROFILE,
-      payload: res.data
-    });
-
-    dispatch(setAlert('Experience Added', 'success'));
-
-    history.push('/dashboard');
-  } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
-    }
-
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
-  }
-};
 
 // Add Education
 export const addEducation = (formData, history) => async (dispatch) => {
@@ -166,24 +124,7 @@ export const addEducation = (formData, history) => async (dispatch) => {
   }
 };
 
-// Delete experience
-export const deleteExperience = (id) => async (dispatch) => {
-  try {
-    const res = await api.delete(`/profile/experience/${id}`);
 
-    dispatch({
-      type: UPDATE_PROFILE,
-      payload: res.data
-    });
-
-    dispatch(setAlert('Experience Removed', 'success'));
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
-  }
-};
 
 // Delete education
 export const deleteEducation = (id) => async (dispatch) => {
