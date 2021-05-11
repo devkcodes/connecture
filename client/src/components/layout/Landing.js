@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import photo1 from './layoutImg/mainImg.jpg';
+import './Landing.css';
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
@@ -9,25 +11,28 @@ const Landing = ({ isAuthenticated }) => {
   }
 
   return (
-    <section className='landing'>
-      <div className='dark-overlay'>
-        <div className='landing-inner'>
-          <h1 className='x-large'>Developer Connector</h1>
-          <p className='lead'>
-            Create a developer profile/portfolio, share posts and get help from
-            other developers
-          </p>
-          <div className='buttons'>
-            <Link to='/register' className='btn btn-primary'>
-              Sign Up
-            </Link>
-            <Link to='/login' className='btn btn-light'>
-              Login
-            </Link>
-          </div>
+    <div className = "landingg">
+
+        <div className = "leftSide">
+          <img src = {photo1} alt="hero"/>
         </div>
-      </div>
-    </section>
+
+        <center>
+          <div className = "rightSide">
+              <h1 className = "headLanding">Connecture</h1>
+
+              <h3 className = "intro">
+                  A simple social platform to enhance the tech culture of your college. 
+                  Build new connections, meet up, and grow with Connecture!
+              </h3>
+                
+              <div className = "linkdiv">
+              <Link to="/register" className = "link1">SIGN UP</Link>
+                  <Link to="/login" className = "link2">LOGIN</Link>
+              </div>
+          </div>
+        </center>
+    </div>
   );
 };
 

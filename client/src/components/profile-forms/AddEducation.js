@@ -7,7 +7,6 @@ import { addEducation } from '../../actions/profile';
 const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
     school: '',
-    degree: '',
     stream: '',
     from: '',
     to: '',
@@ -17,7 +16,6 @@ const AddEducation = ({ addEducation, history }) => {
 
   const {
     school,
-    degree,
     stream,
     from,
     to,
@@ -31,10 +29,7 @@ const AddEducation = ({ addEducation, history }) => {
   return (
     <Fragment>
       <h1 className="large text-primary">Add Your Education</h1>
-      <p className="lead">
-        <i className="fas fa-code-branch" /> Add any school or bootcamp that you
-        have attended
-      </p>
+    
       <small>* = required field</small>
       <form
         className="form"
@@ -46,7 +41,7 @@ const AddEducation = ({ addEducation, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="* School or Bootcamp"
+            placeholder="* School Name"
             name="school"
             value={school}
             onChange={onChange}
@@ -56,22 +51,14 @@ const AddEducation = ({ addEducation, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="* Degree or Certificate"
-            name="degree"
-            value={degree}
+            placeholder="* Stream"
+            name="stream"
+            value={stream}
             onChange={onChange}
             required
           />
         </div>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Stream"
-            name="stream"
-            value={stream}
-            onChange={onChange}
-          />
-        </div>
+       
         <div className="form-group">
           <h4>From Date</h4>
           <input type="date" name="from" value={from} onChange={onChange} />
@@ -102,7 +89,7 @@ const AddEducation = ({ addEducation, history }) => {
           <textarea
             name="description"
             cols="30"
-            rows="5"
+            rows="3"
             placeholder="Program Description"
             value={description}
             onChange={onChange}

@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 import formatDate from '../../utils/formatDate';
 
 const ProfileEducation = ({
-  education: { school, degree, stream, current, to, from, description }
+  education: { school, stream, to, from, description }
 }) => (
   <div>
     <h3 className="text-dark">{school}</h3>
     <p>
       {formatDate(from)} - {to ? formatDate(to) : 'Now'}
     </p>
-    <p>
-      <strong>Degree: </strong> {degree}
-    </p>
+   
     <p>
       <strong>Stream: </strong> {stream}
     </p>

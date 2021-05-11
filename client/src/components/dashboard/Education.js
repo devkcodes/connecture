@@ -5,10 +5,11 @@ import { deleteEducation } from '../../actions/profile';
 import formatDate from '../../utils/formatDate';
 
 const Education = ({ education, deleteEducation }) => {
+  console.log(education)
   const educations = education.map((edu) => (
     <tr key={edu._id}>
       <td>{edu.school}</td>
-      <td className="hide-sm">{edu.degree}</td>
+      <td className="hide-sm">{edu.stream}</td>
       <td>
         {formatDate(edu.from)} - {edu.to ? formatDate(edu.to) : 'Now'}
       </td>
@@ -30,7 +31,7 @@ const Education = ({ education, deleteEducation }) => {
         <thead>
           <tr>
             <th>School</th>
-            <th className="hide-sm">Degree</th>
+            <th className="hide-sm">Stream</th>
             <th className="hide-sm">Years</th>
             <th />
           </tr>
